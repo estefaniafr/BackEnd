@@ -1,0 +1,29 @@
+{
+  "name": "travelling-back",
+  "version": "1.0.0",
+  "description": "Backend for travelling app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estefaniafr/travelling-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estefaniafr/travelling-back/issues"
+  },
+  "homepage": "https://github.com/estefaniafr/travelling-back#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  }
+}
