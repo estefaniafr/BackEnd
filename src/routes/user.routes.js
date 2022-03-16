@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.post("/register", createUser);
 
-// WITH MIDDLEWARE
-// router.put("/account/update", securityMiddleware.checkToken, userController.updateUser);
-// router.get("/account/logout", userController.logOutUser);
-// router.delete("/remove/account", userController.deleteUser);
+// router.get("/:id", getUser);
+// router.get("/", getUsers);
+// router.put("/:id", updateUser);
+// router.delete("/:id", removeUser);
 
 module.exports = router;
