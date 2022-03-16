@@ -11,6 +11,7 @@ class Core {
     this.core = express();
     this.port = PORT;
 
+    this.databaseConnection();
     this.useMiddlewares();
     this.useRoutes();
   }
