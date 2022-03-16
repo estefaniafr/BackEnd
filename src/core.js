@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const { connection } = require("./database/mongoose");
+const { connection } = require("../database/mongoose");
 const { env, endpoint } = require("./config");
 
 const { PORT } = env;
@@ -17,32 +17,6 @@ class Core {
 
   async databaseConnection() {
     await connection();
-
-    // Ejemplos then y async/await
-    // Esto no lo repliques en tu backend
-    // const test = new Promise();
-    // test.then((datos) => {
-    //     console.log("ha ido todo bien")
-    // }, (erro) => {
-    //     console.log("error");
-    // });
-
-    // const datos = await test();
-    // if (datos[0].email) {
-    //     res.send({ users: datos });
-    // } else {
-    //     res.send({ error: "ha fallado los usuarios"});
-    // }
-
-    // try {
-    //     const datos = await test();
-    //     if (datos[0].email) {
-    //         res.send({ users: datos });
-    //     }
-
-    // } catch (error) {
-    //     res.send({ error: "ha fallado los usuarios"});
-    // }
   }
 
   useMiddlewares() {
