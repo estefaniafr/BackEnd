@@ -3,12 +3,12 @@ const { Schema, model } = require("mongoose");
 const UserSchema = Schema({
   name: {
     type: String,
-    require: true,
+    required: true,
   },
 
   lastname: {
     type: String,
-    require: true,
+    required: true,
   },
 
   email: {
@@ -25,6 +25,7 @@ const UserSchema = Schema({
   registerDate: {
     type: Date,
     required: true,
+    default: new Date(),
   },
 
   status: {
@@ -39,9 +40,7 @@ const UserSchema = Schema({
     enum: ["ADMIN_ROLE", "USER_ROLE"],
   },
 
-  lastSession: { type: Date },
-  birthday: { type: Date },
-  locale: { type: String },
+  locale: { type: String, default: "es_ES" },
 });
 
 UserSchema.methods.toJSON = function () {

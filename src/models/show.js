@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const ShowSchema = Schema({
-
   title: {
     type: String,
     require: true,
@@ -9,11 +8,9 @@ const ShowSchema = Schema({
 
   subtitle: {
     type: String,
-    required: true,
-    unique: true,
   },
 
-  catergory: {
+  category: {
     type: String,
     required: true,
   },
@@ -23,12 +20,16 @@ const ShowSchema = Schema({
     required: true,
   },
 
-  picture: { type: Image },
-  
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
 });
 
-UserSchema.methods.toJSON = function () {
-  const { __v, password, ...show } = this.toObject();
+// Extraemos los atributos inecesarios del modelo Show antes
+// de devolver la entidad a nuestra app frontend
+ShowSchema.methods.toJSON = function () {
+  const { __v, ...show } = this.toObject();
   return show;
 };
 
