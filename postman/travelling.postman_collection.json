@@ -6,36 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "User - Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"lastname\": \"Rodriguez\",\r\n    \"email\": \"juan@gmail.com\",\r\n    \"password\": \"juan\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/user/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"user",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "User - Update",
 			"request": {
 				"method": "PUT",
@@ -191,6 +161,66 @@
 						"show",
 						"remove",
 						"632360fad437deedd9a8ab6e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"juan@gmail.com\",\r\n    \"password\": \"juan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\": \"Jhony\",\r\n    \"lastname\": \"Reyes\",\r\n    \"email\": \"jhony@travelling.com\",\r\n    \"password\": \"1234\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
 					]
 				}
 			},
