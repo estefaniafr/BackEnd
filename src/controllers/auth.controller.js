@@ -22,7 +22,7 @@ const loginUser = async (req = request, res = response) => {
           .json({ msg: "The email or password is incorrect" });
       }
 
-      return res.status(200).json({ user: user.toJSON() });
+      return res.status(200).json(user.toJSON());
     }
 
     res.status(400).json({ msg: "The user is not register" });
