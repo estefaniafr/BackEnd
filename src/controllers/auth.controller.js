@@ -34,17 +34,13 @@ const loginUser = async (req = request, res = response) => {
 
 const registerUser = async (req = request, res = response) => {
   const { name, lastname, email, password } = req.body;
+  const requiredFields = { name, lastname, email, password };
 
-  if (Object.values(req.body).some((el) => !el.length)) {
-    res.status(400).json({ msg: "Bad request" });
+  if (Object.values(requiredFields).some((el) => !el.length)) {
+    return res.status(400).json({ msg: "Bad request" });
   }
 
-  const user = new User({
-    name,
-    lastname,
-    email,
-    password,
-  });
+  const user = new User(requiredFields);
 
   try {
     const userExists = await User.findOne({ email });

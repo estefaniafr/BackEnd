@@ -42,6 +42,7 @@ class Core {
     this.core.use(endpoint.auth, require("./routes/auth.routes"));
     this.core.use(endpoint.user, require("./routes/user.routes"));
     this.core.use(endpoint.show, require("./routes/show.routes"));
+    this.core.use(endpoint.category, require("./routes/category.routes"));
 
     // APP ROUTE
     this.core.get("*", (req, res) =>

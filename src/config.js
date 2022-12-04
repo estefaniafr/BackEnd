@@ -5,5 +5,6 @@ module.exports = {
     auth: "/api/auth",
     user: "/api/user",
     show: "/api/show",
+    category: "/api/category",
   },
 };

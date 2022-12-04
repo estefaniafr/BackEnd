@@ -28,6 +28,22 @@ const getShows = async (req = request, res = response) => {
   }
 };
 
+const getShowsByIdCategory = async (req = request, res = response) => {
+  const { idCategory } = req.params;
+  try {
+    const shows = await Show.find({ category: idCategory });
+
+    if (shows.length === 0) {
+      return res.status(400).json({ msg: "No shows by category" });
+    }
+
+    res.status(200).json({ data: shows });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "internal.error" });
+  }
+};
+
 const createShow = async (req = request, res = response) => {
   const show = new Show(req.body);
 
@@ -77,6 +93,7 @@ const deleteShow = async (req = request, res = response) => {
 
 module.exports = {
   getShows,
+  getShowsByIdCategory,
   createShow,
   updateShow,
   deleteShow,

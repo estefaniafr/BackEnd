@@ -6,225 +6,335 @@
 	},
 	"item": [
 		{
-			"name": "User - Update",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Juan 2\",\r\n    \"lastname\": \"Rodriguez\",\r\n    \"email\": \"juan@gmail.com\",\r\n    \"password\": \"juan\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Category",
+			"item": [
+				{
+					"name": "Category - List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/category/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category",
+								"list"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/api/user/account",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"user",
-						"account"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "User - Delete",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/api/user/remove?email=juan@gmail.com",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"user",
-						"remove"
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "juan@gmail.com"
+				{
+					"name": "Category - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"MyCategory\",\r\n    \"description\": \"MyCategory es una descripcion\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/category/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category",
+								"create"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Show - List",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/api/show/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"show",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Show - Create",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Show 2\",\r\n    \"subtitle\": \"Subtitle 2\",\r\n    \"category\": \"Teatro\",\r\n    \"description\": \"Esto es una teatro\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/api/show/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"show",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Show - Update",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"description\": \"Estoy actualizando la descripcion del show\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Category - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/category/remove/6387a6c68944c01146b5e0e8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"category",
+								"remove",
+								"6387a6c68944c01146b5e0e8"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/show/edit/632360fad437deedd9a8ab6e",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"show",
-						"edit",
-						"632360fad437deedd9a8ab6e"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Show - Delete",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/api/show/remove/632360fad437deedd9a8ab6e",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"show",
-						"remove",
-						"632360fad437deedd9a8ab6e"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Auth - Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"juan@gmail.com\",\r\n    \"password\": \"juan\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Auth - User",
+			"item": [
+				{
+					"name": "Auth - Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"Jhony\",\r\n    \"lastname\": \"Reyes\",\r\n    \"email\": \"jhony@travelling.com\",\r\n    \"password\": \"1234\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/api/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
+				{
+					"name": "Auth - Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"juan@gmail.com\",\r\n    \"password\": \"juan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Auth - Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\r\n    \"name\": \"Jhony\",\r\n    \"lastname\": \"Reyes\",\r\n    \"email\": \"jhony@travelling.com\",\r\n    \"password\": \"1234\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "User",
+			"item": [
+				{
+					"name": "User - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"638c9061a52b113c9420c355\",\r\n    \"name\": \"Juan 2\",\r\n    \"lastname\": \"Rodriguez\",\r\n    \"email\": \"juan@gmail.com\",\r\n    \"password\": \"juan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"account"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/api/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"auth",
-						"register"
-					]
+				{
+					"name": "User - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user/remove/{{idUser}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"remove",
+								"{{idUser}}"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Shows",
+			"item": [
+				{
+					"name": "Show - List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/show/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"show",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show - List by Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/show/list/6387a6c68944c01146b5e0e8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"show",
+								"list",
+								"6387a6c68944c01146b5e0e8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Show 2\",\r\n    \"subtitle\": \"Subtitle 2\",\r\n    \"category\": \"6387a6c68944c01146b5e0e8\",\r\n    \"description\": \"Esto es una teatro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/show/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"show",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Estoy actualizando la descripcion del show\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/show/edit/632360fad437deedd9a8ab6e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"show",
+								"edit",
+								"632360fad437deedd9a8ab6e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/show/remove/632360fad437deedd9a8ab6e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"show",
+								"remove",
+								"632360fad437deedd9a8ab6e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

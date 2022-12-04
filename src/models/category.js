@@ -1,19 +1,9 @@
 const { Schema, model } = require("mongoose");
 
-const ShowSchema = Schema({
+const CategorySchema = Schema({
   title: {
     type: String,
     require: true,
-  },
-
-  subtitle: {
-    type: String,
-  },
-
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: "Category",
-    required: true,
   },
 
   description: {
@@ -29,9 +19,9 @@ const ShowSchema = Schema({
 
 // Extraemos los atributos inecesarios del modelo Show antes
 // de devolver la entidad a nuestra app frontend
-ShowSchema.methods.toJSON = function () {
+CategorySchema.methods.toJSON = function () {
   const { __v, ...show } = this.toObject();
   return show;
 };
 
-module.exports = model("Shows", ShowSchema);
+module.exports = model("Category", CategorySchema);
