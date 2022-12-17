@@ -6,11 +6,7 @@ const getCategories = async (req = request, res = response) => {
   try {
     const categories = await Category.find();
 
-    if (categories.length === 0) {
-      return res.status(400).json({ msg: "No shows" });
-    }
-
-    res.status(200).json({ data: categories });
+    res.status(200).json(categories);
   } catch (error) {
     res.status(500).json({ error: "internal.error" });
   }

@@ -3,14 +3,15 @@ const { request, response } = require("express");
 const Show = require("../models/show");
 
 // Controlador entidad shows CRUD completo
-const getShows = async (req = request, res = response) => {
+const getShowsNews = async (req = request, res = response) => {
   // Como tenemos que hacer una consulta a BBDD
   // declaramos un try/catch para manejar el error en caso
   // de que falle nuestra conexion con la BBDD
   // o cualquier error que tengamos con los datos requeridos para la consulta
   try {
     // Consulta BBDD
-    const shows = await Show.find();
+    // Obtener los shows mas recientes
+    const shows = await Show.find({}).sort({ registerShow: "desc" });
 
     // Validacion para mostrar al usuario en caso
     // de que no tengamos ningun shows en BBDD
@@ -33,11 +34,7 @@ const getShowsByIdCategory = async (req = request, res = response) => {
   try {
     const shows = await Show.find({ category: idCategory });
 
-    if (shows.length === 0) {
-      return res.status(400).json({ msg: "No shows by category" });
-    }
-
-    res.status(200).json({ data: shows });
+    res.status(200).json(shows);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "internal.error" });
@@ -45,7 +42,7 @@ const getShowsByIdCategory = async (req = request, res = response) => {
 };
 
 const createShow = async (req = request, res = response) => {
-  const show = new Show(req.body);
+  const show = new Show({ ...req.body, registerShow: new Date() });
 
   // Validar title y category del modelo show
 
@@ -92,7 +89,7 @@ const deleteShow = async (req = request, res = response) => {
 };
 
 module.exports = {
-  getShows,
+  getShowsNews,
   getShowsByIdCategory,
   createShow,
   updateShow,

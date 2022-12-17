@@ -16,6 +16,11 @@ const ShowSchema = Schema({
     required: true,
   },
 
+  registerShow: {
+    type: Date,
+    required: true,
+  },
+
   description: {
     type: String,
     required: true,
