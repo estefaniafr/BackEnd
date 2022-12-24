@@ -253,13 +253,34 @@
 					"response": []
 				},
 				{
+					"name": "Show - Get by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/show/6387a6c68944c01146b5e0e8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"show",
+								"6387a6c68944c01146b5e0e8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Show - Create",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Show 2\",\r\n    \"subtitle\": \"Subtitle 2\",\r\n    \"category\": \"6387a6c68944c01146b5e0e8\",\r\n    \"description\": \"Esto es una teatro\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Show 2\",\r\n    \"subtitle\": \"Subtitle 2\",\r\n    \"category\": \"639a182a229837bd3a7fb9f4\",\r\n    \"description\": \"Esto es una teatro\",\r\n    \"urlLink\": \"Cualquier url\",\r\n    \"duration\": \"2:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

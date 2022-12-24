@@ -24,6 +24,18 @@ const createCategory = async (req = request, res = response) => {
   }
 };
 
+const updateCategory = async (req = request, res = response) => {
+  const { id, ...rest } = req.body;
+
+  try {
+    const category = await Category.findByIdAndUpdate(id, rest, { new: true });
+    res.status(200).send(category);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ error: "internal.error" });
+  }
+};
+
 const deleteCategory = async (req = request, res = response) => {
   const { idCategory } = req.params;
 
@@ -42,5 +54,6 @@ const deleteCategory = async (req = request, res = response) => {
 module.exports = {
   getCategories,
   createCategory,
+  updateCategory,
   deleteCategory,
 };

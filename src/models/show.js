@@ -26,6 +26,14 @@ const ShowSchema = Schema({
     required: true,
   },
 
+  urlLink: {
+    type: String,
+  },
+
+  duration: {
+    type: String,
+  },
+
   image: {
     data: Buffer,
     contentType: String,

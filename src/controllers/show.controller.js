@@ -11,7 +11,8 @@ const getShowsNews = async (req = request, res = response) => {
   try {
     // Consulta BBDD
     // Obtener los shows mas recientes
-    const shows = await Show.find({}).sort({ registerShow: "desc" });
+    // Limite de 5 shows
+    const shows = await Show.find({}).sort({ registerShow: "desc" }).limit(5);
 
     // Validacion para mostrar al usuario en caso
     // de que no tengamos ningun shows en BBDD
@@ -21,10 +22,22 @@ const getShowsNews = async (req = request, res = response) => {
 
     // Respuesta a el usuario si la consuta ha ido bien
     // Status 200 success
-    res.status(200).json({ data: shows });
+    res.status(200).json(shows);
   } catch (error) {
     // Respuesta a el usuario si obtenemos un error
     // Status 500 server error
+    res.status(500).json({ error: "internal.error" });
+  }
+};
+
+const getShowsById = async (req = request, res = response) => {
+  const { idShow } = req.params;
+
+  try {
+    const show = await Show.findById(idShow);
+    res.status(200).json(show);
+  } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "internal.error" });
   }
 };
@@ -90,6 +103,7 @@ const deleteShow = async (req = request, res = response) => {
 
 module.exports = {
   getShowsNews,
+  getShowsById,
   getShowsByIdCategory,
   createShow,
   updateShow,

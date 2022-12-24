@@ -7,7 +7,7 @@ const loginUser = async (req = request, res = response) => {
   const { email, password } = req.body;
 
   if (Object.values(req.body).some((el) => el.length === 0)) {
-    res.status(404).json({ msg: "The email or password is incorrect" });
+    return res.status(404).json({ msg: "The email or password is incorrect" });
   }
 
   try {
