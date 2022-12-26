@@ -73,15 +73,16 @@ const createShow = async (req = request, res = response) => {
 };
 
 const updateShow = async (req = request, res = response) => {
-  const { idShow } = req.params;
-  const body = req.body;
+  const { id, ...rest } = req.body;
 
-  if (!idShow) {
+  if (!id) {
     return res.status(400).json({ msg: "Bad request" });
   }
 
   try {
-    const showUpdated = await Show.findByIdAndUpdate(idShow, body);
+    const showUpdated = await Show.findByIdAndUpdate(id, rest, {
+      new: true,
+    });
     res.status(200).json(showUpdated);
   } catch (error) {
     console.error(error);

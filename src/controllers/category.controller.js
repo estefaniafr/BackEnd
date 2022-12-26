@@ -27,6 +27,10 @@ const createCategory = async (req = request, res = response) => {
 const updateCategory = async (req = request, res = response) => {
   const { id, ...rest } = req.body;
 
+  if (!id) {
+    return res.status(400).json({ msg: "Bad request" });
+  }
+
   try {
     const category = await Category.findByIdAndUpdate(id, rest, { new: true });
     res.status(200).send(category);

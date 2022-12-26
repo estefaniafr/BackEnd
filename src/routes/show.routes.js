@@ -15,7 +15,7 @@ router.get("/list/news", getShowsNews);
 router.get("/:idShow", getShowsById);
 router.get("/list/:idCategory", getShowsByIdCategory);
 router.post("/create", createShow);
-router.put("/edit/:idShow", updateShow);
+router.put("/edit", updateShow);
 router.delete("/remove/:idShow", deleteShow);
 
 module.exports = router;
