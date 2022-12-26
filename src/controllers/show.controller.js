@@ -1,6 +1,7 @@
 const { request, response } = require("express");
 
 const Show = require("../models/show");
+const Category = require("../models/category");
 
 // Controlador entidad shows CRUD completo
 const getShowsNews = async (req = request, res = response) => {
@@ -35,7 +36,9 @@ const getShowsById = async (req = request, res = response) => {
 
   try {
     const show = await Show.findById(idShow);
-    res.status(200).json(show);
+    const cat = await Category.findById(show.category);
+    const { category, ...rest } = show.toJSON();
+    res.status(200).json({ ...rest, category: cat.title });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "internal.error" });
